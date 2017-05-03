@@ -13,7 +13,7 @@ module ActivationFunctions
 #  def drelu(x)      x[x > 0] = 1.0; x[x < 0] = 0.0; x   end
 #  def softmax(x)
 #    e = Numo::NMath.exp(x - x.max)
-#    e /= e.sum
+#    e / e.sum
 #  end
   def matmul(a,w)   Numo::Linalg.matmul(a,w)            end
 end
@@ -27,9 +27,9 @@ class NN
     include ActivationFunctions
  
     def initialize(_in, _out, _func)
-      @a = DFloat.new(1, _in + 1).fill(1.0)
-      @w = DFloat.new(_in+1, _out).rand(-0.2, 0.2)
-      @c = DFloat.new(_in+1, _out).fill(1.0)
+      @a = SFloat.new(1, _in + 1).fill(1.0)
+      @w = SFloat.new(_in+1, _out).rand(-0.2, 0.2)
+      @c = SFloat.new(_in+1, _out).fill(1.0)
       @func = _func
       @dfunc = ("d" << _func.to_s).to_sym
       @size = _in

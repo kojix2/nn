@@ -40,11 +40,11 @@ def get_label(n)
 end
  
 puts "convert train images and labels..."
-train_images.map!{|ti| Numo::DFloat[*ti] / 256.0 }
+train_images.map!{|ti| Numo::SFloat[*ti] / 256.0 }
 train_labels.map!{|tl| get_label(tl) }
  
 puts "convert test images and labels..."
-test_images.map!{|ti| Numo::DFloat[*ti] / 256.0 }
+test_images.map!{|ti| Numo::SFloat[*ti] / 256.0 }
 test_labels.map!{|tl| get_label(tl) }
  
 def evaluate(n, test_images, test_labels)
