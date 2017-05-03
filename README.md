@@ -4,9 +4,9 @@ A multilayer neural network written in Ruby NArray.
 Although Ruby codes are considered slow, this example can train your neural network with practical speed and predict MNIST handwritten digits in parallel processes.
 
 ## Install
-1. Install Numo::NArray
-2. Install Numo::Linalg
-3. Install parallels
+1. Install [Numo::NArray](https://github.com/ruby-numo/narray)
+2. Install [Numo::Linalg](https://github.com/ruby-numo/linalg) (optional)
+3. Install [parallels](https://github.com/grosser/parallel)
 
 ## Usage
 ```bash
