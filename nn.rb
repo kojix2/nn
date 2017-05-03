@@ -15,7 +15,13 @@ module ActivationFunctions
 #    e = Numo::NMath.exp(x - x.max)
 #    e / e.sum
 #  end
-  def matmul(a,w)   Numo::Linalg.matmul(a,w)            end
+
+  if Numo.const_defined?(:Linalg)
+    def matmul(a,w)   Numo::Linalg.matmul(a,w)            end
+  else
+    puts "Numo::Linalg can not be found. "
+    def matmul(a,w)   a.dot w                             end
+  end
 end
  
 # Neural Network Class
